@@ -59,7 +59,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					});
 			},
 			deleteContact(id) {
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				const config = {
 					method: "DELETE"
 				};
@@ -69,6 +69,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(json => {
+						getActions().listContacts("Tibisfly");
 						return json;
 					});
 			},

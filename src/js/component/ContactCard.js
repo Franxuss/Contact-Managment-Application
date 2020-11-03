@@ -7,7 +7,7 @@ export const ContactCard = props => {
 	const [state, setState] = useState({
 		//initialize state here
 	});
-	console.log(props);
+	// console.log(props);
 	return (
 		<li className="list-group-item">
 			<div className="row w-100">
@@ -19,7 +19,7 @@ export const ContactCard = props => {
 						<button className="btn">
 							<i className="fas fa-pencil-alt mr-3" onClick />
 						</button>
-						<button className="btn" /*onClick={() => props.onDelete()}*/>
+						<button className="btn" onClick={() => props.onDelete()}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
