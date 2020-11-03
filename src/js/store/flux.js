@@ -1,5 +1,5 @@
 // const agendaSlug = "Tibisfly";
-const getState = ({ getStore, setStore }) => {
+const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
@@ -43,7 +43,7 @@ const getState = ({ getStore, setStore }) => {
 				const config = {
 					method: "POST",
 					body: JSON.stringify({
-						full_name: data.name,
+						full_name: data.full_name,
 						email: data.email,
 						agenda_slug: "Tibisfly",
 						address: data.address,
