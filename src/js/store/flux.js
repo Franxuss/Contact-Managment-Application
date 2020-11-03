@@ -6,24 +6,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 			contacts: []
 		},
 		actions: {
-			// createContact: async data => {
-			// 	let endpoint = await fetch("https://assets.breatheco.de/apis/fake/contact/Tibisay", {
-			// 		method: "POST",
-			// 		mode: "cors",
-			// 		redirect: "follow",
-			// 		headers: new Headers({
-			// 			"Content-Type": "application/json"
-			// 		}),
-			// 		body: JSON.stringify({
-			// 			full_name: data.name,
-			// 			email: data.email,
-			// 			agenda_slug: "Tibisay",
-			// 			address: data.address,
-			// 			phone: data.phone
-			// 		})
-			// 	});
-			// 	endpoint = await endpoint.json();
-			// },
 			listContacts(slug) {
 				const store = setStore();
 				const endpoint = "https://assets.breatheco.de/apis/fake/contact/agenda/" + slug;
@@ -39,6 +21,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					});
 			},
 			createContact(data) {
+				const store = getStore;
 				const endpoint = "https://assets.breatheco.de/apis/fake/contact/";
 				const config = {
 					method: "POST",
@@ -116,4 +99,22 @@ const getState = ({ getStore, setStore, getActions }) => {
 	};
 };
 // evitar error de compatibilidad
+// createContact: async data => {
+// 	let endpoint = await fetch("https://assets.breatheco.de/apis/fake/contact/Tibisay", {
+// 		method: "POST",
+// 		mode: "cors",
+// 		redirect: "follow",
+// 		headers: new Headers({
+// 			"Content-Type": "application/json"
+// 		}),
+// 		body: JSON.stringify({
+// 			full_name: data.name,
+// 			email: data.email,
+// 			agenda_slug: "Tibisay",
+// 			address: data.address,
+// 			phone: data.phone
+// 		})
+// 	});
+// 	endpoint = await endpoint.json();
+// },
 export default getState;

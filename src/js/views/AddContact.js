@@ -71,7 +71,7 @@ export const AddContact = props => {
 					<button
 						type="button"
 						className="btn btn-primary form-control"
-						onClick={() => {
+						onClick={e => {
 							actions.createContact(data);
 						}}>
 						save
