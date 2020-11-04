@@ -42,6 +42,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(json => {
 						getActions().listContacts("Tibisfly");
+						alert("Your contact was created!");
 					});
 			},
 			getContact(id) {
@@ -73,8 +74,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return json;
 					});
 			},
-			updateContact() {
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/:id";
+			updateContact(id, data) {
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
 				const config = {
 					method: "PUT",
 					body: JSON.stringify({

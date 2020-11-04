@@ -35,7 +35,6 @@ export const Contacts = () => {
 								/>
 							);
 						})}
-						{/* <ContactCard onDelete={() => setState({ showModal: true })} /> */}
 					</ul>
 				</div>
 			</div>

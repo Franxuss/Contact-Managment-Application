@@ -4,7 +4,6 @@ import { Context } from "../store/appContext";
 
 export const AddContact = props => {
 	const { store, actions } = useContext(Context);
-	// const [value, setValue] = useState("");
 
 	const [data, setData] = useState({
 		email: "",
@@ -14,10 +13,11 @@ export const AddContact = props => {
 	});
 
 	const handleChange = event => {
-		console.log(data);
 		setData({ ...data, [event.target.name]: event.target.value });
 	};
-
+	// const handleClick = event => {
+	//     if()
+	// } aquí quiero meter dos onClick con un if, uno para save y otro para update
 	return (
 		<div className="container">
 			<div>
@@ -68,14 +68,22 @@ export const AddContact = props => {
 							name="address"
 						/>
 					</div>
-					<button
+					<Link
+						to="/"
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={e => {
 							actions.createContact(data);
 						}}>
+						{/* <button
+						type="button"
+						className="btn btn-primary form-control"
+						onClick={e => {
+							actions.createContact(data);
+						}}> */}
 						save
-					</button>
+						{/* </button> */}
+					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
 					</Link>
