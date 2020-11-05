@@ -15,9 +15,7 @@ export const AddContact = props => {
 	const handleChange = event => {
 		setData({ ...data, [event.target.name]: event.target.value });
 	};
-	// const handleClick = event => {
-	//     if()
-	// } aquí quiero meter dos onClick con un if, uno para save y otro para update
+
 	return (
 		<div className="container">
 			<div>
@@ -75,14 +73,7 @@ export const AddContact = props => {
 						onClick={e => {
 							actions.createContact(data);
 						}}>
-						{/* <button
-						type="button"
-						className="btn btn-primary form-control"
-						onClick={e => {
-							actions.createContact(data);
-						}}> */}
-						save
-						{/* </button> */}
+						Save
 					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts

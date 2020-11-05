@@ -31,14 +31,22 @@ export const Modal = props => {
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
+						<button
+							type="button"
+							className="btn btn-primary"
+							data-dismiss="modal"
+							aria-label="Close"
+							onClick={() => props.onClose()}>
 							Oh no!
 						</button>
 						<button
 							type="button"
 							className="btn btn-secondary"
 							data-dismiss="modal"
-							onClick={() => actions.deleteContact(props.data.id)}>
+							onClick={() => {
+								actions.deleteContact(props.data.id);
+								props.onClose();
+							}}>
 							Do it!
 						</button>
 					</div>
