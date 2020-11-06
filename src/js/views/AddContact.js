@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const AddContact = props => {
@@ -15,7 +15,7 @@ export const AddContact = props => {
 	const handleChange = event => {
 		setData({ ...data, [event.target.name]: event.target.value });
 	};
-
+	// los tres puntos son para construir el array. Operador de destructurar: saca todos los componentes de un array a parte y no agrega. Especie de "super push"
 	return (
 		<div className="container">
 			<div>
@@ -70,9 +70,10 @@ export const AddContact = props => {
 						to="/"
 						type="button"
 						className="btn btn-primary form-control"
-						onClick={e => {
+						onClick={() => {
 							actions.createContact(data);
 						}}>
+						{/* Falta agregar el update  */}
 						Save
 					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">

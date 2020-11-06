@@ -7,12 +7,10 @@ import { Context } from "../store/appContext";
 
 export const ContactCard = props => {
 	const [state, setState] = useState({
-		data: {
-			full_name: "",
-			id: 0
-		}
+		data: {}
 	});
 	const { store, actions } = useContext(Context);
+
 	return (
 		<li className="list-group-item">
 			<div className="row w-100">

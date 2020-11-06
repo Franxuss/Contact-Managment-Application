@@ -8,10 +8,7 @@ import { Modal } from "../component/Modal";
 export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false,
-		data: {
-			full_name: "",
-			id: 0
-		}
+		data: {}
 	});
 
 	const { store, actions } = useContext(Context);
