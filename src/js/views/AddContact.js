@@ -5,6 +5,8 @@ import { Context } from "../store/appContext";
 export const AddContact = props => {
 	const { store, actions } = useContext(Context);
 
+	const params = useParams();
+
 	const [data, setData] = useState({
 		email: "",
 		phone: "",
@@ -71,10 +73,13 @@ export const AddContact = props => {
 						type="button"
 						className="btn btn-primary form-control"
 						onClick={() => {
-							actions.createContact(data);
+							if (params.id) {
+								actions.updateContact(params.id);
+							} else {
+								actions.createContact(data);
+							}
 						}}>
-						{/* Falta agregar el update  */}
-						Save
+						{params.id ? "Update" : "Save"}
 					</Link>
 					<Link className="mt-3 w-100 text-center" to="/">
 						or get back to contacts
