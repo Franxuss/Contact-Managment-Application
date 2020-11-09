@@ -73,9 +73,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return json;
 					});
 			},
-			updateContact(id, data) {
+			async updateContact(id, data) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + id;
+				const endpoint = (await "https://assets.breatheco.de/apis/fake/contact/") + id;
 				const config = {
 					method: "PUT",
 					body: JSON.stringify({
@@ -89,7 +89,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						"Content-Type": "application/json"
 					}
 				};
-				fetch(endpoint, config)
+				await fetch(endpoint, config)
 					.then(response => {
 						return response.json();
 					})
