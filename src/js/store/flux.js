@@ -74,6 +74,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					});
 			},
 			async updateContact(id, data) {
+				console.log(data);
 				const store = getStore();
 				const endpoint = (await "https://assets.breatheco.de/apis/fake/contact/") + id;
 				const config = {
