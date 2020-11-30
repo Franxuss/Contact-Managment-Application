@@ -72,10 +72,9 @@ export const AddContact = props => {
 						to="/"
 						type="button"
 						className="btn btn-primary form-control"
-						onClick={params => {
-							console.log(params);
+						onClick={() => {
 							if (params.id) {
-								actions.updateContact(params);
+								actions.updateContact(params.id, data);
 							} else {
 								actions.createContact(data);
 							}
