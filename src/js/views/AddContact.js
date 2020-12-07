@@ -18,10 +18,11 @@ export const AddContact = props => {
 		setData({ ...data, [event.target.name]: event.target.value });
 	};
 	// los tres puntos son para construir el array. Operador de destructurar: saca todos los componentes de un array a parte y no agrega. Especie de "super push"
+	// useEffect(()=)
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center mt-5">{params.id ? "Update" : "Create New Contact"}</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
