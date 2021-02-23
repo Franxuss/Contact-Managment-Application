@@ -48,6 +48,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					});
 			},
 			getContact(id) {
+				const store = getStore();
 				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + slug + id;
 				const config = {
 					method: "GET"
@@ -87,7 +88,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 						phone: data.phone
 					}),
 					headers: {
-						"Content-Type": "application/json"
+						"Content-Type": "application/json",
+						"Access-Control-Allow-Origin": "*"
 					}
 				};
 				await fetch(endpoint, config)

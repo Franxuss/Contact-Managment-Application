@@ -18,7 +18,7 @@ export const AddContact = props => {
 		setData({ ...data, [event.target.name]: event.target.value });
 	};
 	// los tres puntos son para construir el array. Operador de destructurar: saca todos los componentes de un array a parte y no agrega. Especie de "super push"
-	// useEffect(()=)
+
 	return (
 		<div className="container">
 			<div>
@@ -75,6 +75,7 @@ export const AddContact = props => {
 						className="btn btn-primary form-control"
 						onClick={() => {
 							if (params.id) {
+								actions.getContact(params.id);
 								actions.updateContact(params.id, data);
 							} else {
 								actions.createContact(data);
