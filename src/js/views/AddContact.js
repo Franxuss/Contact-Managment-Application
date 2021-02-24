@@ -10,7 +10,7 @@ export const AddContact = props => {
 	const [data, setData] = useState({
 		email: "",
 		phone: "",
-		full_name: "",
+		fullName: "",
 		address: ""
 	});
 
@@ -31,8 +31,8 @@ export const AddContact = props => {
 							className="form-control"
 							placeholder="Full Name"
 							onChange={handleChange}
-							value={data.full_name}
-							name="full_name"
+							value={data.fullName}
+							name="fullName"
 						/>
 					</div>
 					<div className="form-group">
@@ -75,7 +75,6 @@ export const AddContact = props => {
 						className="btn btn-primary form-control"
 						onClick={() => {
 							if (params.id) {
-								actions.getContact(params.id);
 								actions.updateContact(params.id, data);
 							} else {
 								actions.createContact(data);

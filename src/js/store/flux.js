@@ -5,10 +5,10 @@ const getState = ({ getStore, setStore, getActions }) => {
 			agenda_slug: "Tibisfly"
 		},
 		actions: {
-			listContacts(slug) {
-				const store = setStore();
+			listContacts() {
+				const store = getStore();
 
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/agenda/" + slug;
+				const endpoint = "https://assets.breatheco.de/apis/fake/contact/agenda/" + store.agenda_slug;
 				const config = {
 					method: "GET"
 				};
@@ -27,7 +27,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				const config = {
 					method: "POST",
 					body: JSON.stringify({
-						full_name: data.full_name,
+						full_name: data.fullName,
 						email: data.email,
 						agenda_slug: store.agenda_slug,
 						address: data.address,
@@ -49,7 +49,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 			getContact(id) {
 				const store = getStore();
-				const endpoint = "https://assets.breatheco.de/apis/fake/contact/" + slug + id;
+				const endpoint = `https://assets.breatheco.de/apis/fake/contact/${store.agenda_slug}/${id}`;
 				const config = {
 					method: "GET"
 				};
@@ -77,19 +77,18 @@ const getState = ({ getStore, setStore, getActions }) => {
 			async updateContact(id, data) {
 				console.log(data);
 				const store = getStore();
-				const endpoint = (await "https://assets.breatheco.de/apis/fake/contact/edit/") + id;
+				const endpoint = (await "https://assets.breatheco.de/apis/fake/contact/") + id;
 				const config = {
 					method: "PUT",
 					body: JSON.stringify({
-						full_name: data.name,
+						full_name: data.fullName,
 						email: data.email,
 						agenda_slug: store.agenda_slug,
 						address: data.address,
 						phone: data.phone
 					}),
 					headers: {
-						"Content-Type": "application/json",
-						"Access-Control-Allow-Origin": "*"
+						"Content-Type": "application/json"
 					}
 				};
 				await fetch(endpoint, config)
