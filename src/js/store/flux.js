@@ -2,7 +2,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			contacts: [],
-			agenda_slug: "Tibisfly"
+			agenda_slug: "Fran-agend"
 		},
 		actions: {
 			listContacts() {
@@ -43,7 +43,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(json => {
 						getActions().listContacts(store.agenda_slug);
-						console.log("se ha guardado en Tibisfly");
+						console.log("se ha guardado en Fran-agend");
 						alert("Your contact was created!");
 					});
 			},
@@ -102,24 +102,5 @@ const getState = ({ getStore, setStore, getActions }) => {
 		}
 	};
 };
-// evitar error de compatibilidad
-// createContact: async data => {
-// 	let endpoint = await fetch("https://assets.breatheco.de/apis/fake/contact/Tibisay", {
-// 		method: "POST",
-// 		mode: "cors",
-// 		redirect: "follow",
-// 		headers: new Headers({
-// 			"Content-Type": "application/json"
-// 		}),
-// 		body: JSON.stringify({
-// 			full_name: data.name,
-// 			email: data.email,
-// 			agenda_slug: "Tibisay",
-// 			address: data.address,
-// 			phone: data.phone
-// 		})
-// 	});
-// 	endpoint = await endpoint.json();
-// },
-// Alejandro en la mentoría del día 06/11/2020 me explicó que el fetch devuelve una promesa, vendría siendo cuando en el .then tenemos dentro de los paréntesis el response, que puede devolver cuantos ".then" quieras, con lo que quieras y EN DÓNDE QUIERAS, porque el ejemplo fue agregar en el componente AddContacts que el update Contact me devuelva data.id en json
+
 export default getState;

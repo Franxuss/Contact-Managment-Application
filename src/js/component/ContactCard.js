@@ -1,16 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import React from "react";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
 
 export const ContactCard = props => {
-	const [state, setState] = useState({
-		data: {}
-	});
-	const { store, actions } = useContext(Context);
-
 	return (
 		<li className="list-group-item">
 			<div className="row w-100">
@@ -55,20 +48,12 @@ export const ContactCard = props => {
 	);
 };
 
-/**
- * Define the data-types for
- * your component's properties
- **/
 ContactCard.propTypes = {
 	history: PropTypes.object,
 	onDelete: PropTypes.func,
 	data: PropTypes.object
 };
 
-/**
- * Define the default values for
- * your component's properties
- **/
 ContactCard.defaultProps = {
 	onDelete: null
 };

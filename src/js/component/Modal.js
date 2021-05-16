@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useContext } from "react";
-import { withRouter } from "react-router-dom";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const Modal = props => {
-	const [state, setState] = useState({
-		//initialize state here
-	});
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 	return (
 		<div className="modal" tabIndex="-1" role="dialog" style={{ display: props.show ? "inline-block" : "none" }}>
 			<div className="modal-dialog" role="document">
@@ -55,10 +51,6 @@ export const Modal = props => {
 		</div>
 	);
 };
-/**
- * Define the data-types for
- * your component's properties
- **/
 Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
@@ -66,10 +58,6 @@ Modal.propTypes = {
 	data: PropTypes.object
 };
 
-/**
- * Define the default values for
- * your component's properties
- **/
 Modal.defaultProps = {
 	show: false,
 	onClose: null

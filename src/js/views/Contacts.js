@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
 import { ContactCard } from "../component/ContactCard.js";
 import { Modal } from "../component/Modal";
 
@@ -11,7 +10,7 @@ export const Contacts = () => {
 		data: {}
 	});
 
-	const { store, actions } = useContext(Context);
+	const { store } = useContext(Context);
 
 	return (
 		<div className="container">
